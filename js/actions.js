@@ -30,7 +30,9 @@ function add(title,quant){
     $(".soma").html("R$ "+soma.toFixed(2));
 }
 // atualizar as telas
-atualizar();
+$(document).ready(function () {
+    atualizar();
+});
 $(window).scroll(function () { 
     atualizar();    
 });
