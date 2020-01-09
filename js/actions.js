@@ -1,9 +1,14 @@
+$(document).ready(function () {
+    atualizar();
 
 $('.descAdd').blur(function (e) { 
     $('.descAdd').val(parseFloat( $('.descAdd').val()).toFixed(2));
 
     
 });
+
+});
+
 function atualizar(){
     $(".btAdd").width( $(".btAdd").height());
 };
@@ -30,9 +35,7 @@ function add(title,quant){
     $(".soma").html("R$ "+soma.toFixed(2));
 }
 // atualizar as telas
-$(document).ready(function () {
-    atualizar();
-});
+
 $(window).scroll(function () { 
     atualizar();    
 });
