@@ -1,33 +1,33 @@
 $(document).ready(function () {
     atualizar();
-
-$('.descAdd').blur(function (e) { 
-    $('.descAdd').val(parseFloat( $('.descAdd').val()).toFixed(2));
-
-    
-});
-
+    $('.descAdd').blur(function (e) { 
+        $('.descAdd').val(parseFloat( $('.descAdd').val()).toFixed(2));    
+    });
 });
 
 function atualizar(){
+    $(".excluir").width( $(".excluir").height());
     $(".btAdd").width( $(".btAdd").height());
+    
+    soma();
 };
 // clicks
-$(".btAdd").click(function (e) { 
+$(".btAdd").click(function () { 
     if($(".titleAdd").val().length!=0&&$(".descAdd").val()!=0){
-        add($(".titleAdd").val(),$(".descAdd").val());
-        $(".descAdd").val('');
-        $(".titleAdd").val('');
+        soma();
     }
     else{
         alert("CAMPOS VAZIOS !");
     }
-
     
 });
+$(".resposta .excluir").click(function () { 
+    var index = $(".excluir").index($(this));
+    var id =$(".idResp").eq(index).text();
+    window.location= "excluir.php?id="+id;
+});
 // fução de add results
-function add(title,quant){
-    $(".result").prepend("<div class='resposta'><div class='titleResp'>"+title+"</div> <div class='quantResp'>"+quant+"</div> </div>");
+function soma(){
     var soma=0;
     $(".resposta").each(function (i) { 
         soma+= parseFloat($(".quantResp").eq(i).text());
